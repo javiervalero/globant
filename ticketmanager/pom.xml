@@ -24,23 +24,6 @@
             </plugin>
         </plugins>
     </build>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-        </dependency>
-        <dependency>
-        	<groupId>com.sun.jersey</groupId>
-        	<artifactId>jersey-bundle</artifactId>
-        	<version>${jersey-version}</version>
-        </dependency>
-        <dependency>
-        	<groupId>asm</groupId>
-        	<artifactId>asm</artifactId>
-        	<version>${asm-version}</version>
-        </dependency>
-    </dependencies>
     <properties>
         <jersey-version>1.17.1</jersey-version>
         <asm-version>3.3.1</asm-version>
@@ -67,4 +50,21 @@
             <layout>default</layout>
         </pluginRepository>  
     </pluginRepositories>
+    <dependencies>
+    	<dependency>
+    		<groupId>com.sun.jersey</groupId>
+    		<artifactId>jersey-server</artifactId>
+    		<version>${jersey-version}</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>com.sun.jersey</groupId>
+    		<artifactId>jersey-servlet</artifactId>
+    		<version>${jersey-version}</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>com.sun.jersey</groupId>
+    		<artifactId>jersey-json</artifactId>
+    		<version>${jersey-version}</version>
+    	</dependency>
+    </dependencies>
 </project>
