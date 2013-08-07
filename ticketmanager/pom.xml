@@ -26,7 +26,6 @@
     </build>
     <properties>
         <jersey-version>1.17.1</jersey-version>
-        <asm-version>3.3.1</asm-version>
     </properties>
     <repositories>
         <repository>
