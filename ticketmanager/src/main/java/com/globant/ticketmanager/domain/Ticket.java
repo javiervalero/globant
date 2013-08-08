@@ -10,12 +10,7 @@ public class Ticket {
 	private Integer priority;
 	private Date dueDate;
 	
-	public Ticket(Integer id, String description){
-		this.id = id;
-		
-		this.description = description;
-	}
-	
+
 	/**
 	 * @return the id
 	 */
