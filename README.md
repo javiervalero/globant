@@ -11,6 +11,7 @@ To automate project common tasks it is recommended to install this software.
  * Nodejs package manager (npm): http://nodejs.org/download/
  * Bower: https://github.com/bower/bower
  * Grunt: http://gruntjs.com/getting-started
+ * Git
 
 Initial Setup
 =============
