@@ -37,7 +37,7 @@ public class DB {
 		if (dbTicket.containsKey(id)){
 			return dbTicket.get(id);
 		} else {
-			throw new Exception("Ticket does not exist");
+			throw new Exception("Ticket id:" + id.toString() + " does not exist");
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class DB {
 		if (dbTicket.containsKey(id)){
 			dbTicket.put(id, ticket);
 		} else {
-			throw new Exception("Ticket does not exist");
+			throw new Exception("Ticket id:" + id.toString() + " does not exist");
 		}
 	}
 
@@ -57,7 +57,7 @@ public class DB {
 		if (dbTicket.containsKey(id)){
 			dbTicket.remove(id);
 		} else {
-			throw new Exception("Ticket does not exist");
+			throw new Exception("Ticket id:" + id.toString() + " does not exist");
 		}
 	}
 	

@@ -60,11 +60,11 @@ public class TicketResource extends ResourceBase{
 		try {
 			DB.updateTicket(id, ticket);
 			return Response.ok()
-				.entity(TicketResource.createResponse(0, "Ticket updated Successfully")).build();
+				.entity(TicketResource.createResponse(0, "Ticket id:" + id.toString() + " updated Successfully")).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new WebApplicationException(e,
-				Response.status(Responses.CLIENT_ERROR)
+				Response.status(Responses.NOT_FOUND)
 				.entity(TicketResource.createResponse(0, e.getMessage())).build()
 			);
 		}
@@ -79,9 +79,18 @@ public class TicketResource extends ResourceBase{
 	@Path("{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response delete(@PathParam("id") Integer id) throws Exception {
-		DB.deleteTicket(id);
-		return Response.noContent().entity(ResourceBase.createResponse(0, "Ticket Deleted successfully")).build();
+	public Response delete(@PathParam("id") Integer id) {
+		try {
+			DB.deleteTicket(id);
+			return Response.ok()
+					.entity(TicketResource.createResponse(0, "Ticket id:" + id.toString() + " deleted Successfully")).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new WebApplicationException(e,
+				Response.status(Responses.NOT_FOUND)
+				.entity(TicketResource.createResponse(0, e.getMessage())).build()
+			);
+		}
 	}
     
     /** 

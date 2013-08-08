@@ -1,8 +1,11 @@
 (function($){
 	
+	var $output = null,
+		timer = null;
+	
 	$(document).ready(function(){
 		
-		var $output = $('#output');
+		$output = $('#output');
 
 		$('#createLink').on('click', function(event){
 			event.preventDefault();
@@ -15,7 +18,7 @@
 				$output.append('<br/>' + jqXHR.getResponseHeader('Location'));
 			}).fail(function(jqXHR, textStatus, errorThrown){
 			    $output.text($.parseJSON(jqXHR.responseText).message);
-			});
+			}).always(cleanOutput);
 		});
 		
 		$('#deleteLink').on('click', function(event){
@@ -27,7 +30,7 @@
 				$output.text(data.message);
 			}).fail(function(jqXHR, textStatus, errorThrown){
 				$output.text($.parseJSON(jqXHR.responseText).message);
-			});
+			}).always(cleanOutput);
 		});
 		
 		$('#updateLink').on('click', function(event){
@@ -40,10 +43,21 @@
 				$output.text(data.message);
 			}).fail(function(jqXHR, textStatus, errorThrown){
 				$output.text($.parseJSON(jqXHR.responseText).message);
-			});
+			}).always(cleanOutput);
 
 		});
 		
+		
 	});
+	
+	function cleanOutput(){
+		if (timer != null) {
+			clearTimeout(timer);
+			timer = null;
+		}
+		timer = setTimeout(function(){
+			$output.text("");
+		}, 4000);
+	}
 	
 })(jQuery);
