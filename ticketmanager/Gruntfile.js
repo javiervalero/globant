@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 				files: [{src: 'bower_components/jquery/jquery.js', dest: 'src/main/webapp/js/jquery/jquery.js'}]
 			},
 			prod: {
-				files: [{src: 'bower_components/jquery/jquery.min.js', dest: 'src/main/webapp/js/jquery.js'}]				
+				files: [{src: 'bower_components/jquery/jquery.min.js', dest: 'src/main/webapp/js/jquery/jquery.js'}]				
 			}
 		}
 	});
